@@ -1,15 +1,13 @@
 ## What is this?
 
-This Wordpress child theme is based on the excellent https://bootspress.com/ theme using the famous BootStrap framework.
+This Wordpress child theme is based on any theme you like.
 
-This child theme is also using WebPack as it was explained in this (also excellent) article by Henner Setyono https://wptips.dev/webpack-in-wordpress/
-
-Thanks for the original authors of both.
+It uses WebPack as it was explained in this (also excellent) article by Henner Setyono https://wptips.dev/webpack-in-wordpress/
+Thanks to him!
 
 ## Installation
 
-1. Download Bootspress original theme in your Wordpress themes directory (https://wordpress.org/themes/bootspress/)
-2. Clone this repository in your wordpress themes directory
+1. Clone this repository in your wordpress themes directory
 You should have something like this
 
 ```
@@ -17,8 +15,8 @@ Your site root
 ├── …
 ├── wp-content
 │   └── themes
-│       ├── bootspress
-│       └── bootspress-child
+│       ├── your-parent-theme
+│       └── wordpress-child-theme-with-webpack
 └── …
 ```
 
@@ -34,6 +32,8 @@ https://localhost:3000
 
 ## Important
 
-Don't forget to edit `bootstrap-child/webpack.config.js` according to your own parameters. You can also add your own entry-points of course.
+1. You have to edit `./style.css` line 4 replacing the string `your-parent-theme-directory-name` by the name of your parent theme directory name (caution, directory name may be different from the theme name itsself, it is actually the folder name you have to enter there).
 
-Alos, be aware that in my configuration, the rendered CSS and JS files are located in the `bootspress-child/dist folder`
+2. Don't forget to edit `wordpress-child-theme-with-webpack/webpack.config.js` according to your own parameters. You can also add your own entry-points of course.
+
+3. Also, be aware that in my configuration, the rendered CSS and JS files are located in the `wordpress-child-theme-with-webpack/dist` folder. You can change these settings if you wish at lines 5 and below in the `webpack.config.js` file.
