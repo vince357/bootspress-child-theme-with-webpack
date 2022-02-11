@@ -6,7 +6,7 @@ var path = require('path');
 const jsPath= './js';
 const cssPath = './css';
 const outputPath = 'dist';
-const localDomain = 'https://test-wp-webpack.itnetwork.fr'; // YOUR LOCAL DOMAIN NAME
+const localDomain = 'https://test-wp-webpack.dev'; // YOUR LOCAL DOMAIN NAME
 const entryPoints = {
   // 'app' is the output name, people commonly use 'bundle'
   // you can have more than 1 entry point
@@ -26,10 +26,19 @@ module.exports = {
 
     // CSS Live reload use
     new BrowserSyncPlugin({
+      port: 3000,
       proxy: localDomain,
-      files: [ outputPath + '/*.css' ],
+      files: [
+        outputPath + '/*.css',
+        '**/*.php',
+        '**/*.js'
+      ],
       injectCss: true,
-    }, { reload: false, }),
+      host: "localhost",
+    }, {
+      reload: false,
+      injectChanges: true,
+    }),
   ],
   module: {
     rules: [
